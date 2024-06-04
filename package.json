@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.5",
-    "@lordicon/react": "^1.4.1",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "@next/font": "^14.0.4",
     "@vercel/speed-insights": "^1.0.9",
