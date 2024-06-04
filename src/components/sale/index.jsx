@@ -144,7 +144,7 @@ const Index = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/stores")
+      .get("https://server-2cb5.onrender.com/api/stores")
       .then((response) => {
         setAvailableStores(response.data);
       })
@@ -157,7 +157,7 @@ const Index = () => {
     setSelectedStore(selectedStore);
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/stores/${selectedStore}`
+        `https://server-2cb5.onrender.com/api/stores/${selectedStore}`
       );
 
       if (response.status === 200) {
@@ -211,7 +211,7 @@ const Index = () => {
     setSelectedLocation(storedData.location);
     console.log(selectedStore);
     try {
-      const response = await axios.post("http://localhost:8080/api/sale", {
+      const response = await axios.post("https://server-2cb5.onrender.com/api/sale", {
         selectedStoresID: [newSelectedLocationValue],
       });
       // Assuming the response contains the data you need
