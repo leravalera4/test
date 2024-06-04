@@ -181,7 +181,7 @@ const Products = ({ cartData }) => {
     console.log(store)
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/stores/${selectedStore}`
+        `https://server-2cb5.onrender.com/api/stores/${selectedStore}`
       );
 
       if (response.status === 200) {
@@ -228,7 +228,7 @@ const Products = ({ cartData }) => {
    const selectedStoresID = JSON.parse(localStorage.getItem('stores1'))
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/updateLocation",
+        "https://server-2cb5.onrender.com/api/updateLocation",
         {
           selectedStoresID: selectedStoresID,
           searchText: searchText,
