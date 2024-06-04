@@ -163,7 +163,7 @@ const Products = ({ cartData }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/stores")
+      .get("https://server-2cb5.onrender.com/api/stores")
       .then((response) => {
         setAvailableStores(response.data);
       })
