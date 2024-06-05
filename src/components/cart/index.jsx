@@ -13,9 +13,9 @@ import Spiner from "../spiner";
 
 const options = {
   filename: "test.pdf",
-  page: {
-    margin:Margin.SMALL,
- },
+//   page: {
+//     margin:Margin.SMALL,
+//  },
 
 };
 
@@ -93,7 +93,7 @@ const Cart = () => {
     try {
       // Send the data to the appropriate backend endpoint based on the type
       const response = await axios.post(
-        "https://server-2cb5.onrender.com/api/sale/setsale",
+        "http://localhost:8080/api/sale/setsale",
         { sale: sale, theme: theme } // Wrap the sale data in an object with the key "sale"
       );
       const responses = response.data;
@@ -222,6 +222,34 @@ const Cart = () => {
           setState({ isPaneOpen: false });
         }}
       >
+        <div style={{display:'flex',flexDirection:'column'}}>
+                {mergedData.length === 0 ? (
+          " "
+        ) : (
+          <button 
+          className={`${noir.className} box`}
+            style={{
+              marginLeft: "auto",
+              width: "182px",
+              outline: "0",
+              cursor: "pointer",
+              height: "38px",
+              padding: "5px 16px",
+              fontSize: "14px",
+              fontWeight: "500",
+              lineHeight: "20px",
+              verticalAlign: "middle",
+              border: "1px solid",
+              borderRadius: " 6px",
+              color: " #24292e",
+              backgroundColor: "#fafbfc",
+              borderColor: "#1b1f2326",
+              transition: "0.2s cubic-bezier(0.3, 0, 0.5, 1)",
+            }}
+          onClick={() => generatePDF(targetRef, options)}>
+            Download products list
+          </button>
+        )}
         {/* <div
           style={{
             display: "flex",
@@ -281,6 +309,7 @@ const Cart = () => {
               display: "flex",
               flexDirection: "row",
               opacity: "100",
+              marginTop: "-13px",
               transition: "all .75s ease",
               flexWrap: "wrap",
             }}
@@ -424,6 +453,7 @@ const Cart = () => {
           <p>Checking latest prices for you...</p>
           </>
         )}
+        </div>
         {/* <div ref={targetRef}
           style={{
             display: "flex",
@@ -555,13 +585,6 @@ const Cart = () => {
           ))}
         </div> */}
 
-        {mergedData.length === 0 ? (
-          " "
-        ) : (
-          <button onClick={() => generatePDF(targetRef, options)}>
-            Download PDF
-          </button>
-        )}
       </SlidingPane>
       {/* {data.map((store) => (
         <ul key={store}>
