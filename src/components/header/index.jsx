@@ -7,7 +7,7 @@ import Cart from "../cart";
 import Navigation from "../navigation";
 import Link from "next/link";
 import './styles.css'
-
+import Headroom from 'react-headroom';
 const noir = localFont({
   src: [
     {
@@ -46,7 +46,13 @@ const Header = () => {
   }, []);
 
   return (
-      <header className={isSticky ? 'sticky' : 'header'}
+    <Headroom style={{
+      webkitTransition: 'all .5s ease-in-out',
+      mozTransition: 'all .5s ease-in-out',
+      oTransition: 'all .5s ease-in-out',
+      transition: 'all .5s ease-in-out'
+    }}>
+            <header className="header"
         // style={{
         //   boxShadow: "rgba(37,39,89,0.08) 0px 8px 8px 0",
         //   display: "flex",
@@ -75,6 +81,8 @@ const Header = () => {
         <Navigation style={{display:'flex',justifyContent:'center',alignItms:'center'}} />
         <Cart style={{paddingRigt:'80px',zIndex:'100000'}}/>
       </header>
+    </Headroom>
+
   );
 };
 
