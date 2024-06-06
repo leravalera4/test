@@ -93,7 +93,7 @@ const Cart = () => {
     try {
       // Send the data to the appropriate backend endpoint based on the type
       const response = await axios.post(
-        "http://localhost:8080/api/sale/setsale",
+        "https://server-2cb5.onrender.com/api/sale/setsale",
         { sale: sale, theme: theme } // Wrap the sale data in an object with the key "sale"
       );
       const responses = response.data;
