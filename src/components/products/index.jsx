@@ -972,6 +972,14 @@ const removeStore = (storeId) => {
           <Ab />
         ) : (
           <>
+                        <div>
+              {searchText && searchText.length > 0 && selectedAll.length > 0 && responseData.length >0 && responseData && <div style={{display:'flex',flexDirection:'row',justifyContent: "flex-end",
+    marginRight: "60px"}}>
+              <p style={{paddingRight: "8px",
+    fontSize: "20px"}} className={grape.className}>if you added new store, click here to get prices</p>
+              <p styles={{paddingTop: "5px",
+    fontSize: "17px"}} className={arrows.className}>F</p>
+              </div>}
               {selectedAll.length >0 && <> <h3 className={noir.className}>Selected Stores:</h3>
               <ul value={selectedAll}>
                 {selectedAll.map((store, index) => (
